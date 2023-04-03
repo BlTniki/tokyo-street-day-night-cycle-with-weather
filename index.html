@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: 'Atami';
+            src: url('./fonts/Atami-Regular.otf') format('truetype');
+            /* add other font files for different weights or styles */
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Atami', sans-serif;
+            background: url('images/arseniy-chebynkin-oldtokiyo.jpg');
+            overflow: hidden;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: all 500ms ease-in-out;
+        }
+        #weather-container {
+				color: #ffffff;
+				position: fixed;
+				top: 380px; 
+				right: 7.5vw; 
+                perspective: 1000px;
+			}
+        .wrapper {
+            border: 0.01em solid #00000033;
+            backdrop-filter: blur(0.35em);
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            /* grid-gap: 0.5em; */
+            max-width: 20em;
+            max-height: 18em;
+            transform: rotateY(1deg);
+        }
+        
+        .also {
+            font-size: 0.5em;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+        .mainCard {
+            padding: 0.5em;
+            border: 0.01em solid #00000033;
+            display: grid;
+            grid-template-rows: 0fr 1fr 0fr;
+        }
+        .mainTempCard{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .feelCard {
+            padding: 0.5em;
+            border: 0.01em solid #00000033;
+            display: grid;
+            grid-template-rows: 0fr 0fr;
+        }
+        .minMaxCard {
+            padding: 0.5em;
+            border: 0.01em solid #00000033;
+            display: grid;
+            grid-template-rows: 0fr 0fr;
+        }
+        description {
+            align-self: end;
+        }
+        .windCard {
+            padding: 0.5em;
+            border: 0.01em solid #00000033;
+            display: grid;
+            grid-template-rows: 0fr 0fr;
+        }
+        .mainCard temp {
+            font-size: 1.5em;
+            vertical-align: middle;
+            /* align-self: flex-end; */
+            /* justify-self: flex-end; */
+            white-space: nowrap;
+            
+        }
+        temp {
+            font-size: 1.5em;
+            align-self: flex-end;
+            justify-self: flex-end;
+            white-space: nowrap;
+            
+        }
+        div {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+    <div id="weather-container">
+        
+    </div>
+</body>
+
+<script src="index.js"></script>
+
+</html>
