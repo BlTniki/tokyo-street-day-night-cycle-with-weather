@@ -157,6 +157,7 @@ setTimeout(() => {
 		//get time now in hours
 		var nowTimeInHours = Math.floor(new Date().getTime()/(60*60*1000));
 		if (nowTimeInHours > lastWeatherRequestTimeInHours) {
+			lastWeatherRequestTimeInHours = nowTimeInHours;
 			getWeather()
 			.then(data => container.innerHTML = renderWeather(data));
 		}
