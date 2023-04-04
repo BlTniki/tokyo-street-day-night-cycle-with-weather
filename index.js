@@ -143,13 +143,25 @@ function getWeatherTEST() {
   
 const container = document.querySelector('#weather-container');
 // container.innerHTML = renderWeather(getWeatherTEST());
+
+// With some the WE parameters, request may not be sent
+// (for example, if the focus is not on the desktop)
+// So I workaround this problem
 setTimeout(() => {  
 	getWeather()
 	.then(data => container.innerHTML = renderWeather(data));
+	//save request time in hours
+	var lastWeatherRequestTimeInHours = Math.floor(new Date().getTime()/(60*60*1000));
+	
+	setInterval(() => {  
+		//get time now in hours
+		var nowTimeInHours = Math.floor(new Date().getTime()/(60*60*1000));
+		if (nowTimeInHours > lastWeatherRequestTimeInHours) {
+			getWeather()
+			.then(data => container.innerHTML = renderWeather(data));
+		}
+	}, 1000);
+
 }, 5000);
 
-setInterval(function() {
-	getWeather().then(response => {
-		document.getElementById("weather").innerHTML = response;
-	});
-}, 60*60*1000);
+ 
